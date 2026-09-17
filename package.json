@@ -1,0 +1,20 @@
+{
+  "name": "trendingai-tinyui",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.20.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "schema": "tinyui schema --entry schema/index.ts --ts src/generated/components.ts",
+    "typecheck": "pnpm schema && tsc -p tsconfig.json --noEmit",
+    "sync": "node scripts/sync.mjs"
+  },
+  "dependencies": {
+    "@tiny-ui/core": "link:../../KMPProjects/tinyui/packages/core",
+    "@tiny-ui/native": "link:../../KMPProjects/tinyui/packages/native"
+  },
+  "devDependencies": {
+    "@tiny-ui/cli": "link:../../KMPProjects/tinyui/packages/cli",
+    "typescript": "7.0.2"
+  }
+}
