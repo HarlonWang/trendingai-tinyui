@@ -147,7 +147,7 @@ function PlanCard(p: PlanCardProps) {
                     <Text text={p.title} style="titleSmall" />
                     <Show when={p.badge}>
                         {() => (
-                            <Box background="primary" cornerRadius={4} padding={4}>
+                            <Box background="primary" cornerRadius={4} paddingHorizontal={6} paddingVertical={2}>
                                 <Text text={p.badge ?? ""} style="labelSmall" color="onPrimary" />
                             </Box>
                         )}
