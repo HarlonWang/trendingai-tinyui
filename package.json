@@ -10,11 +10,11 @@
     "sync": "node scripts/sync.mjs"
   },
   "dependencies": {
-    "@tiny-ui/core": "link:../../KMPProjects/tinyui/packages/core",
-    "@tiny-ui/native": "link:../../KMPProjects/tinyui/packages/native"
+    "tinyui-core": "link:../../KMPProjects/tinyui/packages/core",
+    "tinyui-native": "link:../../KMPProjects/tinyui/packages/native"
   },
   "devDependencies": {
-    "@tiny-ui/cli": "link:../../KMPProjects/tinyui/packages/cli",
+    "tinyui-cli": "link:../../KMPProjects/tinyui/packages/cli",
     "typescript": "7.0.2"
   }
 }

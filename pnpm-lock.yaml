@@ -8,14 +8,14 @@ importers:
 
   .:
     dependencies:
-      '@tiny-ui/core':
+      tinyui-core:
         specifier: link:../../KMPProjects/tinyui/packages/core
         version: link:../../KMPProjects/tinyui/packages/core
-      '@tiny-ui/native':
+      tinyui-native:
         specifier: link:../../KMPProjects/tinyui/packages/native
         version: link:../../KMPProjects/tinyui/packages/native
     devDependencies:
-      '@tiny-ui/cli':
+      tinyui-cli:
         specifier: link:../../KMPProjects/tinyui/packages/cli
         version: link:../../KMPProjects/tinyui/packages/cli
       typescript:

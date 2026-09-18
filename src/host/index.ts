@@ -1,5 +1,5 @@
 // Typed face of what SubscriptionScreen.kt registers as HostServices.capabilities; names and shapes must match there.
-import { host } from "@tiny-ui/native";
+import { host } from "tinyui-native";
 
 export type Plan = "annual" | "monthly";
 

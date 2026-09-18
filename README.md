@@ -13,7 +13,7 @@ scripts/sync.mjs 编译 + 复制
 ## 用法
 
 ```sh
-pnpm install          # @tiny-ui/* 经 link: 指向 ../../KMPProjects/tinyui/packages，那边先 pnpm build
+pnpm install          # tinyui-* 经 link: 指向 ../../KMPProjects/tinyui/packages，那边先 pnpm build
 pnpm typecheck
 pnpm sync             # → TrendingAI/shared/src/commonMain/composeResources/files/tinyui/ 与 …/tinyui/generated/HostSchemas.kt
 ```

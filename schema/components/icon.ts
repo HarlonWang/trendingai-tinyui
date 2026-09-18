@@ -1,4 +1,4 @@
-import { color, defineComponent, dp, string } from "@tiny-ui/cli/schema";
+import { color, defineComponent, dp, string } from "tinyui-cli/schema";
 
 export default defineComponent("ta.Icon", {
     doc: "A Material icon picked by key; unknown keys fall back to a check mark (SubscriptionScreen's benefitIcon).",

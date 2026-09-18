@@ -1,5 +1,5 @@
-import { Box, Button, Column, For, observable, RadioButton, resource, Row, Show, Spacer, Text } from "@tiny-ui/core";
-import { store } from "@tiny-ui/native";
+import { Box, Button, Column, For, observable, RadioButton, resource, Row, Show, Spacer, Text } from "tinyui-core";
+import { store } from "tinyui-native";
 import { ta } from "../generated/components.ts";
 import { analytics, auth, billing, checkout, ui, type Plan } from "../host/index.ts";
 

@@ -22,7 +22,7 @@ function qjsc() {
     return bin;
 }
 
-const cli = resolve(root, "node_modules/@tiny-ui/cli/dist/bin.js");
+const cli = resolve(root, "node_modules/tinyui-cli/dist/bin.js");
 const run = (...args) => execFileSync("node", [cli, ...args], { stdio: "inherit", cwd: root });
 
 run("schema", "--entry", "schema/index.ts", "--ts", "src/generated/components.ts", "--kt", schemasKt, "--package", "whl.trending.ai.tinyui.generated", "--object", "HostSchemas");

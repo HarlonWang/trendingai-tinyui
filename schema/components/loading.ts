@@ -1,4 +1,4 @@
-import { color, defineComponent, dp } from "@tiny-ui/cli/schema";
+import { color, defineComponent, dp } from "tinyui-cli/schema";
 
 export default defineComponent("ta.Loading", {
     doc: "M3 Expressive LoadingIndicator, the app-wide loading indicator (TrendingAI CLAUDE.md).",
