@@ -1,6 +1,6 @@
 # trendingai-tinyui
 
-TrendingAI 里用 [TinyUI](https://github.com/HarlonWang/tinyui) 写的页面：TSX 在这里，编成字节码后经 `pnpm sync` 复制进 `../TrendingAI` 提交。TrendingAI 的构建不依赖 Node（F-Droid 从源码构建时没有 Node）。
+TrendingAI 里用 [TinyUI](https://github.com/tiny-ui/tinyui) 写的页面：TSX 在这里，编成字节码后经 `pnpm sync` 复制进 `../TrendingAI` 提交。TrendingAI 的构建不依赖 Node（F-Droid 从源码构建时没有 Node）。
 
 ```
 schema/          宿主组件（ta.Icon、ta.Loading）的 schema，两侧契约
