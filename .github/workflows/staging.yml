@@ -1,0 +1,39 @@
+# 合进 main 即构建、签名、发 staging（tinyui docs/updates-plan.md M6）；晋级 production 走 production.yml
+name: Publish staging
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: publish-staging
+  cancel-in-progress: false
+
+env:
+  # 抄 TrendingAI 的 HOST_VERSION（shared/.../tinyui/TrendingTinyUI.kt）；抄错时 publish 对照服务端的宿主快照拒绝发布
+  HOST_VERSION: "1"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm exec tinyui build
+      - name: Bundle & publish
+        env:
+          SIGNING_KEY: ${{ secrets.TINYUI_SIGNING_KEY }}
+          TINYUI_TOKEN: ${{ secrets.TINYUI_STAGING_TOKEN }}
+        run: |
+          key="$RUNNER_TEMP/signing-key.pem"
+          printf '%s\n' "$SIGNING_KEY" > "$key"
+          pnpm exec tinyui bundle --host-version "$HOST_VERSION" --signing-key "$key"
+          rm -f "$key"
+          pnpm exec tinyui publish --channel staging --app trendingai

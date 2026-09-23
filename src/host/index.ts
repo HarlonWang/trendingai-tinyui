@@ -1,4 +1,4 @@
-// Typed face of what SubscriptionScreen.kt registers as HostServices.capabilities; names and shapes must match there.
+// Typed face of the capabilities TrendingAI registers in TinyUIHost.kt; names and shapes must match there.
 import { host } from "tinyui-native";
 
 export type Plan = "annual" | "monthly";

@@ -3,18 +3,20 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.20.0",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "schema": "tinyui schema --entry schema/index.ts --ts src/generated/components.ts",
     "typecheck": "pnpm schema && tsc -p tsconfig.json --noEmit",
     "sync": "node scripts/sync.mjs"
   },
   "dependencies": {
-    "tinyui-core": "link:../../KMPProjects/tinyui/packages/core",
-    "tinyui-native": "link:../../KMPProjects/tinyui/packages/native"
+    "tinyui-core": "0.4.0",
+    "tinyui-native": "0.4.0"
   },
   "devDependencies": {
-    "tinyui-cli": "link:../../KMPProjects/tinyui/packages/cli",
+    "tinyui-cli": "0.4.0",
     "typescript": "7.0.2"
   }
 }
