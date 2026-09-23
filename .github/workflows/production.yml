@@ -1,0 +1,50 @@
+# production 的晋级 / 回滚 / 改灰度，须经 production environment 的人工批准（tinyui docs/updates.md §6.2）
+name: Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "promote: 把 staging 上的某版晋级；rollback: 指针换回某版；rollout: 改当前版的灰度百分比"
+        type: choice
+        options: [promote, rollback, rollout]
+        required: true
+      version:
+        description: "promote / rollback 的包版本（tinyui releases list 可查）"
+        required: false
+      percent:
+        description: "rollout 的百分比 0-100"
+        required: false
+      host_version:
+        description: "宿主版本"
+        default: "1"
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Run
+        env:
+          TINYUI_TOKEN: ${{ secrets.TINYUI_PRODUCTION_TOKEN }}
+          ACTION: ${{ inputs.action }}
+          VERSION: ${{ inputs.version }}
+          PERCENT: ${{ inputs.percent }}
+          HOST_VERSION: ${{ inputs.host_version }}
+        run: |
+          set -eu
+          case "$ACTION" in
+            promote)  pnpm exec tinyui releases promote "$VERSION" --host-version "$HOST_VERSION" --to production --app trendingai ;;
+            rollback) pnpm exec tinyui releases rollback "$VERSION" --host-version "$HOST_VERSION" --channel production --app trendingai ;;
+            rollout)  pnpm exec tinyui releases rollout "$PERCENT" --host-version "$HOST_VERSION" --channel production --app trendingai ;;
+          esac
+          pnpm exec tinyui releases list --host-version "$HOST_VERSION" --app trendingai
