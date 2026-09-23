@@ -17,7 +17,7 @@ on:
         required: false
       host_version:
         description: "宿主版本"
-        default: "1"
+        default: "2"
         required: true
 
 # 同一 production 指针的操作串行，免得两次已批准的操作互相覆盖

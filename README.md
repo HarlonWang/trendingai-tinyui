@@ -8,7 +8,8 @@ schema/             宿主组件（ta.Icon、ta.Loading）的 schema，两侧契
 src/pages/          页面，一个文件一个页面
 src/host/           宿主能力的类型封装，名字与 TrendingAI 的 tinyui/Capabilities.kt 对应
 src/generated/      `pnpm schema` 生成的宿主组件类型（入库）
-scripts/sync.mjs    编译 + 复制进 ../TrendingAI（内置包与 HostSchemas.kt）
+scripts/sync.mjs    生成 ../TrendingAI 的 HostSchemas.kt
+scripts/pull.mjs    把 production 那版拉进 ../TrendingAI 作内置包
 ```
 
 ## 发布
@@ -24,7 +25,8 @@ scripts/sync.mjs    编译 + 复制进 ../TrendingAI（内置包与 HostSchemas.
 ```sh
 pnpm install
 pnpm typecheck
-pnpm sync             # → TrendingAI/shared/src/commonMain/composeResources/files/tinyui/trendingai/ 与 …/tinyui/generated/HostSchemas.kt
+pnpm sync             # → TrendingAI/…/tinyui/generated/HostSchemas.kt（改了 schema/ 之后）
+pnpm pull             # 发 App 前：production 那版 → TrendingAI/…/composeResources/files/tinyui/trendingai/，在那边提交
 ```
 
-TrendingAI 的构建不依赖 Node（F-Droid 从源码构建时没有 Node），内置包由 `sync` 提交进那边。
+TrendingAI 的构建不依赖 Node（F-Droid 从源码构建时没有 Node），内置包由 `pull` 提交进那边；它与线上是同一个版本，回滚到"App 自带的那版"才落得到已装了新版本的设备。本地改页面要在 App 里看，走 staging（合 main → 切通道），或临时 `pnpm exec tinyui build` 后把 dist 复制过去、不提交。

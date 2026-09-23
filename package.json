@@ -9,14 +9,15 @@
   "scripts": {
     "schema": "tinyui schema --entry schema/index.ts --ts src/generated/components.ts",
     "typecheck": "pnpm schema && tsc -p tsconfig.json --noEmit",
-    "sync": "node scripts/sync.mjs"
+    "sync": "node scripts/sync.mjs",
+    "pull": "node scripts/pull.mjs"
   },
   "dependencies": {
-    "tinyui-core": "0.4.0",
-    "tinyui-native": "0.4.0"
+    "tinyui-core": "0.4.1",
+    "tinyui-native": "0.4.1"
   },
   "devDependencies": {
-    "tinyui-cli": "0.4.0",
+    "tinyui-cli": "0.4.1",
     "typescript": "7.0.2"
   }
 }
