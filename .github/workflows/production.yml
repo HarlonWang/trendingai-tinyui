@@ -20,6 +20,11 @@ on:
         default: "1"
         required: true
 
+# 同一 production 指针的操作串行，免得两次已批准的操作互相覆盖
+concurrency:
+  group: production
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -42,6 +47,10 @@ jobs:
           HOST_VERSION: ${{ inputs.host_version }}
         run: |
           set -eu
+          case "$ACTION" in
+            promote|rollback) [ -n "$VERSION" ] || { echo "::error::$ACTION 需要 version"; exit 1; } ;;
+            rollout) echo "$PERCENT" | grep -Eq '^([0-9]|[1-9][0-9]|100)$' || { echo "::error::rollout 需要 0-100 的整数 percent"; exit 1; } ;;
+          esac
           case "$ACTION" in
             promote)  pnpm exec tinyui releases promote "$VERSION" --host-version "$HOST_VERSION" --to production --app trendingai ;;
             rollback) pnpm exec tinyui releases rollback "$VERSION" --host-version "$HOST_VERSION" --channel production --app trendingai ;;

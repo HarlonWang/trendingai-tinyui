@@ -15,7 +15,7 @@ scripts/sync.mjs    编译 + 复制进 ../TrendingAI（内置包与 HostSchemas.
 
 - 合进 main → `staging.yml` 构建、签名、发 `staging`。`HOST_VERSION` 抄 TrendingAI 的同名常量；抄错时 `publish` 对照热下发服务上的宿主快照拒绝发布
 - `production.yml` 手动跑：`promote` / `rollback` / `rollout`，要过 `production` environment 的人工批准
-- 用商店版 App 看 staging：关于页连点版本号 7 次，把「页面更新通道」切到 staging，重启两次（第一次下载、第二次生效）
+- 用商店版 App 看 staging：关于页连点版本号 7 次，把「页面更新通道」切到 staging（切换即下载），重启一次生效
 
 依赖的 `tinyui-*` 三包版本必须等于 TrendingAI 的 `tinyui`（`gradle/libs.versions.toml`）：页面字节码与宿主引擎同版本，`publish` 也核对它等于宿主快照里的 tinyui 版本。
 
