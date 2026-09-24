@@ -18,7 +18,7 @@ scripts/sync.mjs    生成 ../TrendingAI 的 HostSchemas.kt
 - 回滚：在本仓 revert 合入 main（发一个内容等于旧版的新版本），再 promote。指针只往前走，所有设备都收得到
 - 用商店版 App 看 staging：关于页连点版本号 7 次，把「页面更新通道」切到 staging（切换即下载），重启一次生效
 
-依赖的 `tinyui-*` 三包版本必须等于 TrendingAI 的 `tinyui`（`gradle/libs.versions.toml`）：页面字节码与宿主引擎同版本，`publish` 也核对它等于宿主快照里的 tinyui 版本。
+依赖的 `tinyui-*` 三包版本须与目标宿主版本的 tinyui 下限兼容：major 相同且不高于它（下限是 TrendingAI `shared/tinyui-host/<HOST_VERSION>.txt` 的 `tinyui` 行，`publish` 据此核对）。运行时随 App，包里只有页面；TrendingAI 单纯升 tinyui 不需要本仓跟着升，页面要用新版运行时的东西时，先等 TrendingAI 加 `HOST_VERSION`、抬下限（tinyui docs/adr-006-hot-updates.md §2.11）。
 
 ## 本地
 

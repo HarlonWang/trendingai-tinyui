@@ -11,7 +11,7 @@ concurrency:
 
 env:
   # 抄 TrendingAI 的 HOST_VERSION（shared/.../tinyui/TrendingTinyUI.kt）；publish 对照服务端该版本的快照核对，快照不存在或包用到的东西快照里没有即拒绝
-  HOST_VERSION: "4"
+  HOST_VERSION: "5"
 
 jobs:
   publish:

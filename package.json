@@ -12,11 +12,11 @@
     "sync": "node scripts/sync.mjs"
   },
   "dependencies": {
-    "tinyui-core": "0.6.0",
-    "tinyui-native": "0.6.0"
+    "tinyui-core": "0.7.0",
+    "tinyui-native": "0.7.0"
   },
   "devDependencies": {
-    "tinyui-cli": "0.6.0",
+    "tinyui-cli": "0.7.0",
     "typescript": "7.0.2"
   }
 }
