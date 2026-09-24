@@ -10,8 +10,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # 抄 TrendingAI 的 HOST_VERSION（shared/.../tinyui/TrendingTinyUI.kt）；抄错时 publish 对照服务端的宿主快照拒绝发布
-  HOST_VERSION: "2"
+  # 抄 TrendingAI 的 HOST_VERSION（shared/.../tinyui/TrendingTinyUI.kt）；publish 对照服务端该版本的快照核对，快照不存在或包用到的东西快照里没有即拒绝
+  HOST_VERSION: "3"
 
 jobs:
   publish:
