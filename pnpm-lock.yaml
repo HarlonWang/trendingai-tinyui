@@ -9,15 +9,15 @@ importers:
   .:
     dependencies:
       tinyui-core:
-        specifier: 0.5.0
-        version: 0.5.0
+        specifier: 0.6.0
+        version: 0.6.0
       tinyui-native:
-        specifier: 0.5.0
-        version: 0.5.0
+        specifier: 0.6.0
+        version: 0.6.0
     devDependencies:
       tinyui-cli:
-        specifier: 0.5.0
-        version: 0.5.0
+        specifier: 0.6.0
+        version: 0.6.0
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -457,15 +457,15 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  tinyui-cli@0.5.0:
-    resolution: {integrity: sha512-jVaoNzAPNmU1OAsdOoQJwKZu6wq2hW1SbQNmf8uOR1MDWz49EYMdKrM+Fa+gs3V/KJlvFZgGh62tkQ5oYZP64A==}
+  tinyui-cli@0.6.0:
+    resolution: {integrity: sha512-z1PvNCEP6z4U4WSXwZxto5ifAt7TeQYlEQ31xvhXxsJg6iAX/bBUR/V8y4nl1jQsBdiRJRKZxoa67GUiyFdmJw==}
     hasBin: true
 
-  tinyui-core@0.5.0:
-    resolution: {integrity: sha512-px6fb/MsetmFwW3pS0m45vCt+HfhMu5u5zydLTWkl6wU6hTFAmRzSYwOmGPelAnpmzIw8ZhgWd8cXF+5yQY4Tw==}
+  tinyui-core@0.6.0:
+    resolution: {integrity: sha512-igQZAhO6Vtj5vwobUI47jmf6omCmNw8Ar2UPsaErsTBZVgGubOjj37VnUwo6NIR8/eF7p1VXzQE5M8+Vz1tmPA==}
 
-  tinyui-native@0.5.0:
-    resolution: {integrity: sha512-+VZzogWTrIvbk7/M5RXOlmkyKGHFbxf0x6DMadvTR1Q48TPqV1NcZrYcyuBKQ8R0YGMIA1r+dcad88xSdaruVA==}
+  tinyui-native@0.6.0:
+    resolution: {integrity: sha512-o94QgxG4RL5HJRjxsmEeYjNaOdo05cjYDEJHYvKLZGGpK86+cYC+t1CBC/81lFAIsjyw2fuFkrlnf4R0KqIeaQ==}
 
   typescript@7.0.2:
     resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
@@ -749,18 +749,18 @@ snapshots:
       '@qjsc-kmp/linux-arm64': 0.1.2
       '@qjsc-kmp/linux-x64': 0.1.2
 
-  tinyui-cli@0.5.0:
+  tinyui-cli@0.6.0:
     dependencies:
       esbuild: 0.28.2
       magic-string: 1.4.1
       oxc-parser: 0.150.0
       qjsc-kmp: 0.1.2
 
-  tinyui-core@0.5.0: {}
+  tinyui-core@0.6.0: {}
 
-  tinyui-native@0.5.0:
+  tinyui-native@0.6.0:
     dependencies:
-      tinyui-core: 0.5.0
+      tinyui-core: 0.6.0
 
   typescript@7.0.2:
     optionalDependencies:
