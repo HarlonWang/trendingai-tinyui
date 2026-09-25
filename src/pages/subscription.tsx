@@ -26,29 +26,35 @@ export default function Subscription() {
     const state = observable({ plan: "annual" as Plan, checkingOut: false });
     const [pro, setPro] = signal(storage.get<boolean>("pro.v1") ?? false);
     let awaitingPurchase = false;
+    /** Bumped by every refresh and by logout: a late answer to an older one is dropped. */
+    let generation = 0;
 
     const text = (remoteText: string | undefined, key: Parameters<typeof t>[0]) => remoteText ?? t(key);
     const copy = () => remote() ?? null;
     const loc = () => i18n.locale();
 
     function refreshPro() {
-        if (!session.state().loggedIn) { setPro(false); return; }
-        const delays = awaitingPurchase ? PRO_RETRIES_MS : [0];
-        let i = 0;
-        const next = () => setTimeout(() => {
-            isPro().then((p) => {
-                setPro(p);
-                storage.set("pro.v1", p);
-                if (p) awaitingPurchase = false;
-                else if (++i < delays.length) next();
-            }, (e: unknown) => failed("me", e));
-        }, delays[i]!);
-        next();
+        const mine = ++generation;
+        // each ask is timed from the first, and a failed one does not end the series
+        for (const at of awaitingPurchase ? PRO_RETRIES_MS : [0]) {
+            setTimeout(() => {
+                if (mine !== generation) return;
+                isPro().then((p) => {
+                    if (mine !== generation) return;
+                    setPro(p);
+                    storage.set("pro.v1", p);
+                    if (p) { awaitingPurchase = false; generation++; }
+                }, (e: unknown) => failed("me", e));
+            }, at);
+        }
     }
     effect(() => {
         const loggedIn = session.state().loggedIn;
-        if (!pageVisible()) return;
-        untrack(() => (loggedIn ? refreshPro() : setPro(false)));
+        if (!loggedIn) {
+            untrack(() => { generation++; setPro(false); storage.set("pro.v1", false); });
+            return;
+        }
+        if (pageVisible()) untrack(refreshPro);
     });
 
     function selectPlan(plan: Plan) {
@@ -64,12 +70,11 @@ export default function Subscription() {
         state.checkingOut = true;
         const plan = state.plan;
         try {
-            const url = await checkout(plan);
+            await linking.openUrl(await checkout(plan));
             checkoutStep("opened", plan);
             // the App starts reconciling on its return to the foreground; this page asks again when it is visible
             events.emit("trendingai.checkout.opened", { plan });
             awaitingPurchase = true;
-            await linking.openUrl(url);
         } catch (e) {
             failed("billing/checkout", e);
             void ui.toast(text(pick(copy()?.checkout_failed, loc()), "subscription.checkoutFailed"));
