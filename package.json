@@ -7,16 +7,16 @@
     "node": ">=22"
   },
   "scripts": {
-    "schema": "tinyui schema --entry schema/index.ts --ts src/generated/components.ts",
-    "typecheck": "pnpm schema && tsc -p tsconfig.json --noEmit",
-    "sync": "node scripts/sync.mjs"
+    "i18n": "tinyui i18n --ts src/generated/i18n.ts",
+    "typecheck": "tinyui i18n --ts src/generated/i18n.ts --check && tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "tinyui-core": "0.7.0",
-    "tinyui-native": "0.7.0"
+    "tinyui-core": "0.8.0",
+    "tinyui-native": "0.8.0"
   },
   "devDependencies": {
-    "tinyui-cli": "0.7.0",
+    "@material-symbols/svg-400": "0.47.5",
+    "tinyui-cli": "0.8.0",
     "typescript": "7.0.2"
   }
 }

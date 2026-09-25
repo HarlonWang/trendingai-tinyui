@@ -9,15 +9,18 @@ importers:
   .:
     dependencies:
       tinyui-core:
-        specifier: 0.7.0
-        version: 0.7.0
+        specifier: 0.8.0
+        version: 0.8.0
       tinyui-native:
-        specifier: 0.7.0
-        version: 0.7.0
+        specifier: 0.8.0
+        version: 0.8.0
     devDependencies:
+      '@material-symbols/svg-400':
+        specifier: 0.47.5
+        version: 0.47.5
       tinyui-cli:
-        specifier: 0.7.0
-        version: 0.7.0
+        specifier: 0.8.0
+        version: 0.8.0
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -182,6 +185,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.6.0':
     resolution: {integrity: sha512-T7jf+5zgsZHwNJ4lvQ7/aezbyk0nNX+zJVWpmHA7VYsEx7a7qr5Rg5IbtJFqkgze5Y2sruq1RUY8Q837Od7iFw==}
+
+  '@material-symbols/svg-400@0.47.5':
+    resolution: {integrity: sha512-5AHuernGbTq1uq0YDb16QabESAaiYdqgDsDqF3Nk5usqP8pEeE5Nrt11jSs4/A/D7kOz5Ci6xyXMS/DsaxY/rw==}
 
   '@oxc-parser/binding-android-arm-eabi@0.150.0':
     resolution: {integrity: sha512-oQef2Zu4Prz1KLKznz3HqZzU9uVoA5PMoDZuuLmqms7hKmKSAPzlaMnLllJq3t+rgKmfJJ2siPrpZfFrW06btw==}
@@ -457,15 +463,15 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  tinyui-cli@0.7.0:
-    resolution: {integrity: sha512-aaVPqBrovxGLV+M2DEDfQ0MynI0WrKZzIv0a0lHf392LQYVlZLi5UfpxJRc24nYnQIHQpvUD2GqzyigesgWWVQ==}
+  tinyui-cli@0.8.0:
+    resolution: {integrity: sha512-9zjx/EB8qLtkinU1Diz1pvcmCmuI4dSZa28wNCzSWKYbTk7da7OyFCvyOLNCD5H+SzCD3biBL4UmXbqY969JKA==}
     hasBin: true
 
-  tinyui-core@0.7.0:
-    resolution: {integrity: sha512-0bP/SreycYxQibF2fJ1hFeK5TMhUXhP80SUZXY6E4+ddnEjK9UdvDRiZzw5sqtq/MJltGqJBOlMpqGMpTlTdqg==}
+  tinyui-core@0.8.0:
+    resolution: {integrity: sha512-c6548+v+uLKrdxGC/d4DLSf2FsoDhXHxp5qYztzKWXDxkQKRV67XfJZS4HdDsyQjDwI3oIJQcTlJsOHdZcDGkw==}
 
-  tinyui-native@0.7.0:
-    resolution: {integrity: sha512-U4JGI5sbgklznQkMNlNi+qS3W6pQPYM1qBJKWlarP/OZuH/7yxwEtOkkzivjKVd/v2KXzl67zmKCplrJVV3Kww==}
+  tinyui-native@0.8.0:
+    resolution: {integrity: sha512-3IkmG7hIXTOgSQ80f11GIsX/Y755GizMTa9iqSHe8DhZ5DhYVeViMRSe0T8p51oGStN+t7mzHBBEDNPTnVJS+A==}
 
   typescript@7.0.2:
     resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
@@ -553,6 +559,8 @@ snapshots:
     optional: true
 
   '@jridgewell/sourcemap-codec@1.6.0': {}
+
+  '@material-symbols/svg-400@0.47.5': {}
 
   '@oxc-parser/binding-android-arm-eabi@0.150.0':
     optional: true
@@ -749,18 +757,18 @@ snapshots:
       '@qjsc-kmp/linux-arm64': 0.1.2
       '@qjsc-kmp/linux-x64': 0.1.2
 
-  tinyui-cli@0.7.0:
+  tinyui-cli@0.8.0:
     dependencies:
       esbuild: 0.28.2
       magic-string: 1.4.1
       oxc-parser: 0.150.0
       qjsc-kmp: 0.1.2
 
-  tinyui-core@0.7.0: {}
+  tinyui-core@0.8.0: {}
 
-  tinyui-native@0.7.0:
+  tinyui-native@0.8.0:
     dependencies:
-      tinyui-core: 0.7.0
+      tinyui-core: 0.8.0
 
   typescript@7.0.2:
     optionalDependencies:
