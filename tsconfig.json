@@ -13,7 +13,8 @@
         "skipLibCheck": true,
         "noEmit": true,
         "jsx": "react-jsx",
-        "jsxImportSource": "tinyui-core"
+        "jsxImportSource": "tinyui-core",
+        "types": ["tinyui-core/assets"]
     },
-    "include": ["src", "schema"]
+    "include": ["src"]
 }
