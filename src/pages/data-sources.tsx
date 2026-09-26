@@ -28,18 +28,15 @@ export default function DataSources() {
     return (
         <Column width="fill" height="fill" scroll paddingHorizontal={16} gap={12}>
             <Text text={t("dataSources.intro")} style="bodyMedium" color="onSurfaceVariant" paddingVertical={16} />
-            {/* For wrapped on its own: tinyui-core 0.8.0 inserts a static sibling after a multi-item For at the wrong index */}
-            <Column width="fill" gap={12}>
-                <For each={SOURCES} key={(s) => s.name}>
-                    {(s) => (
-                        <Column width="fill" padding={20} gap={10} cornerRadius={24} background="surfaceContainer">
-                            <Text text={s().name} style="titleMedium" />
-                            <Text text={t(s().source)} style="bodyMedium" color="onSurfaceVariant" />
-                            <Show when={s().scope}>{() => <Text text={t(s().scope!)} style="bodyMedium" color="onSurfaceVariant" />}</Show>
-                        </Column>
-                    )}
-                </For>
-            </Column>
+            <For each={SOURCES} key={(s) => s.name}>
+                {(s) => (
+                    <Column width="fill" padding={20} gap={10} cornerRadius={24} background="surfaceContainer">
+                        <Text text={s().name} style="titleMedium" />
+                        <Text text={t(s().source)} style="bodyMedium" color="onSurfaceVariant" />
+                        <Show when={s().scope}>{() => <Text text={t(s().scope!)} style="bodyMedium" color="onSurfaceVariant" />}</Show>
+                    </Column>
+                )}
+            </For>
             <Spacer height={12} />
         </Column>
     );
