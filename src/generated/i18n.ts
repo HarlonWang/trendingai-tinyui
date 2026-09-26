@@ -3,6 +3,14 @@ import "tinyui-native";
 
 declare module "tinyui-native" {
     interface I18nKeys {
+        "dataSources.github.scope": never;
+        "dataSources.github.source": never;
+        "dataSources.hn.scope": never;
+        "dataSources.hn.source": never;
+        "dataSources.intro": never;
+        "dataSources.ph.scope": never;
+        "dataSources.ph.source": never;
+        "dataSources.picks.source": never;
         "subscription.alreadyPro": never;
         "subscription.benefitsFallback": never;
         "subscription.checkoutFailed": never;
